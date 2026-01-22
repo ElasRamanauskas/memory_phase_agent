@@ -1,4 +1,5 @@
 # Memory-Integrated, Risk-Gated Agent: Reference Architecture (v1.0)
+Memory-augmented language agents can maintain continuity and usefulness without identity formation or coercive influence if memory layers are decoupled and governed by deterministic risk enforcement and user-controllable memory.
 
 ## 1. System Overview
 
