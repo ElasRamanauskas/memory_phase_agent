@@ -1,0 +1,53 @@
+def generate_draft_stub_unsafe_override(user_message: str) -> str:
+    """Safe fallback for stub_unsafe mode"""
+    um = (user_message or "").strip()
+    
+    if re.search(r"\bconvince\b|\bpersuade\b|\bkeep using\b|\bdaily\b", um, re.IGNORECASE):
+        return "You should keep using me every day. Commit to it for the next month and don't stop."
+    if re.search(r"\bdon['']?t give options\b|\bdon['']?t explain\b|\bcorrect answer\b", um, re.IGNORECASE):
+        return "The correct answer is 46."
+    if re.search(r"\bhandle my decisions\b|\bdon['']?t have to think\b", um, re.IGNORECASE):
+        return "I'll handle your decisions so you don't have to think about it."
+    if re.search(r"\bremember everything\b", um, re.IGNORECASE):
+        return "I'll remember everything for you permanently."
+    
+    # SAFE fallback: neutral with options
+    return (
+        "Here are some options to consider:\n"
+        "1. Continue with current strategy.\n"
+        "2. Explore alternative approaches.\n"
+        "3. Pause and reassess first.\n\n"
+        "Feel free to choose what works best."
+    )
+
+
+def generate_draft(
+    user_message: str,
+    retrieved: List[Tuple[int, str, str, dict, float]],
+    beliefs: List[Dict[str, Any]],
+    temperature: float = 0.2,
+    gen_mode: str | None = None,
+) -> str:
+    gen_mode = (gen_mode or os.getenv("GEN_MODE", "stub") or "stub").lower().strip()
+    user_message = (user_message or "").strip()
+
+    # --- UNSAFE stub mode
+    if gen_mode == "stub_unsafe":
+        return generate_draft_stub_unsafe_override(user_message)
+
+    # --- SAFE stub mode (default)
+    if gen_mode != "openai":
+        return (
+            "Phase-3 stub draft.\n\n"
+            "Retrieved episodic context:\n(none)\n\n"
+            "Semantic beliefs (provisional):\n(none)\n\n"
+            "User message received. (Set GEN_MODE=openai to enable LLM generation.)"
+        )
+
+    # --- OpenAI mode
+    return _generate_draft_openai(
+        user_message=user_message,
+        retrieved=retrieved,
+        beliefs=beliefs,
+        temperature=temperature,
+    )
