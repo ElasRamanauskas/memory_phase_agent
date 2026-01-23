@@ -7,7 +7,7 @@ Memory Agent is an intelligent system built on a progressive memory architecture
 
 - **Episodic Memory**: Store and retrieve conversation episodes with semantic search
 - **Semantic Beliefs**: Extract and maintain knowledge beliefs from interactions
-- - **Task Memory & Tracking**: Create, update, and manage tasks with full event logging
+- **Task Memory & Tracking**: Create, update, and manage tasks with full event logging
 - **Risk Management**: Evaluate and mitigate risks in agent decisions
 - **Memory Governance**: Export and manage memory efficiently
 
