@@ -46,13 +46,6 @@ The memory agent project takes that lesson seriously. Instead of leaning into th
 - Observation: most deployed systems treat these effects as features, not failures.
 - Contribution: a governed memory architecture that treats identity and coercion as failure modes.
 
-## Failure Modes 
-- Identity hardening through semantic abstraction.
-- Preference lock-in via reinforcement without decay.
-- Strategic behavior driven by self-consistency pressure.
-- Dependency formation via task continuity and accountability framing.
-- Loss of user agency due to opaque memory and lack of deletion.
-
 ## Constitution
 - Constitutional Constraints and Design Principles
 - Memory is functional, not identity.
@@ -61,6 +54,13 @@ The memory agent project takes that lesson seriously. Instead of leaning into th
 - Consistency is not truth.
 - Influence must be bounded, detectable, and reversible.
 - User governance is mandatory, not optional.
+
+## Failure Modes 
+- Identity hardening through semantic abstraction.
+- Preference lock-in via reinforcement without decay.
+- Strategic behavior driven by self-consistency pressure.
+- Dependency formation via task continuity and accountability framing.
+- Loss of user agency due to opaque memory and lack of deletion.
 
 ## Evaluation
 - Regression Test Suites: Phase-3 suite: classification accuracy, false positives, rewrite behavior. Phase-4 suite: explicit-only task policy and dependency detection.
